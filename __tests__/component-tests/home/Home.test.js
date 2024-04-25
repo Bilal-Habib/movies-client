@@ -9,7 +9,7 @@ import Home from "../../../src/components/home/Home";
 describe("Home component", () => {
   const movies = [
     {
-      id: "64051d6b643db80e55d804c8",
+      movieId: "64051d6b643db80e55d804c8",
       imdbId: "tt1630029",
       title: "Avatar: The Way of Water",
       releaseDate: "2022-12-16",

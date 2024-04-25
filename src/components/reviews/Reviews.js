@@ -9,11 +9,11 @@ import React from "react";
 const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
   const revText = useRef();
   const params = useParams();
-  const movieId = params.movieId;
+  const imdbId = params.movieId;
 
   useEffect(() => {
-    getMovieData(movieId);
-  }, []);
+    getMovieData(imdbId);
+  }, [imdbId]);
 
   const addReview = async (e) => {
     e.preventDefault();
@@ -21,9 +21,9 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
     try {
       const rev = revText.current;
 
-      const response = await api.post("/api/v1/reviews", {
+      const response = await api.post("/reviews", {
         reviewBody: rev.value,
-        imdbId: movieId,
+        imdbId: imdbId,
       });
 
       const updatedReviews = [...reviews, { body: rev.value }];

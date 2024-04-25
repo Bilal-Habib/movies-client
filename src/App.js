@@ -16,26 +16,34 @@ function App() {
 
   const getMovies = async () => {
     try {
-      const response = await api.get("/api/v1/movies");
-      console.log(response.data);
+      const response = await api.get("/movies");
       setMovies(response.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
+  const getReviews = async () => {
+    try {
+      const response = await api.get("/reviews")
+      setReviews(response.data)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   const getMovieData = async (movieId) => {
     try {
-      const response = await api.get(`/api/v1/movies/${movieId}`);
-      const singleMovie = response.data;
+      const singleMovie = movies.find(movie => movie.imdbId === movieId)
       setMovie(singleMovie);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   useEffect(() => {
     getMovies();
+    getReviews();
   }, []);
 
   return (
