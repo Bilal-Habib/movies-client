@@ -9,7 +9,7 @@ import React from "react";
 const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
   const revText = useRef();
   const params = useParams();
-  const imdbId = params.movieId;
+  const imdbId = params.imdbId;
 
   useEffect(() => {
     getMovieData(imdbId);

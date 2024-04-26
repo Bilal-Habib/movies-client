@@ -9,8 +9,8 @@ import { Button } from "react-bootstrap";
 const Hero = ({ movies }) => {
   const navigate = useNavigate();
 
-  function reviews(movieId) {
-    navigate(`/Reviews/${movieId}`);
+  function reviews(imdbId) {
+    navigate(`/Reviews/${imdbId}`);
   }
 
   return (
